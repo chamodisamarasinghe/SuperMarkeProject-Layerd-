@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ViewOrders" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a6ab650-122f-4cf5-9dbe-9620d46fedd1">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (3)"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[select  *   from `Order Detail`]]>
+	</queryString>
+	<field name="code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="code"/>
+		<property name="com.jaspersoft.studio.field.label" value="code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="order detail"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qty" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="qty"/>
+		<property name="com.jaspersoft.studio.field.label" value="qty"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="order detail"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="unitPrice" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="unitPrice"/>
+		<property name="com.jaspersoft.studio.field.label" value="unitPrice"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="order detail"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="185" height="30" uuid="40edb257-52c2-4aad-be2c-e5ad4b5cacec">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fc3e2f77-2894-4fc3-bf74-880e69a770f8"/>
+				</reportElement>
+				<text><![CDATA[code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="0" width="185" height="30" uuid="dc215145-5a27-4bdf-b82d-0e2364f236c3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="55e6c4d0-07dc-410a-be65-2cc43d21129a"/>
+				</reportElement>
+				<text><![CDATA[qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="185" height="30" uuid="317f6f6c-dab9-423f-841e-a4b2e148ee40">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="73bd8b58-06e5-43ae-a2cc-277b50ca3355"/>
+				</reportElement>
+				<text><![CDATA[unitPrice]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="185" height="30" uuid="661f5a98-7284-4872-8f99-8d53f8b50c1d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fc3e2f77-2894-4fc3-bf74-880e69a770f8"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="185" height="30" uuid="9171fc72-9afb-4dc7-a7e7-b8fac6f44c66">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="55e6c4d0-07dc-410a-be65-2cc43d21129a"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="185" height="30" uuid="6633bc8b-79d2-4e9e-a0f5-5e057713f8dc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="73bd8b58-06e5-43ae-a2cc-277b50ca3355"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{unitPrice}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

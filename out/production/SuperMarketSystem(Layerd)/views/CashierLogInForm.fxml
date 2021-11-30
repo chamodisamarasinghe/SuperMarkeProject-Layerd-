@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="cashierFormContext" prefHeight="894.0" prefWidth="790.0" style="-fx-background-color: #C0C0C0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CashierLogInFormController">
+   <children>
+      <Label alignment="TOP_CENTER" layoutX="199.0" layoutY="45.0" prefHeight="66.0" prefWidth="459.0" text="Cashier Log In Form">
+         <font>
+            <Font name="System Bold" size="45.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="161.0" fitWidth="200.0" layoutX="301.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assests/cashier.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="42.0" layoutY="45.0" onAction="#backToHome" prefHeight="76.0" prefWidth="99.0" style="-fx-background-color: #008000;" />
+      <ImageView fitHeight="58.0" fitWidth="65.0" layoutX="63.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assests/home.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="151.0" layoutY="743.0" onAction="#openManageOrdersForm" prefHeight="75.0" prefWidth="488.0" style="-fx-background-color: #006200;" text="Manage Orders" textFill="#f2eded" visible="false">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="151.0" layoutY="582.0" onAction="#openMakeCustomerOrderOnAction" prefHeight="75.0" prefWidth="488.0" style="-fx-background-color: #006200;" text="Make a Customer Order" textFill="#f2eded">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="151.0" layoutY="441.0" onAction="#openViewOrders" prefHeight="75.0" prefWidth="488.0" style="-fx-background-color: #006200;" text="View Orders" textFill="#f2eded">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

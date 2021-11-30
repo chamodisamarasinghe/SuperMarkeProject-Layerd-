@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="IncomeChart" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6f63b243-da2f-45de-87b8-f3ef647b786b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (3)"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[ select orderId, sum(total) as qty from `Order` group by orderId order by total desc;]]>
+	</queryString>
+	<field name="orderId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="orderId"/>
+		<property name="com.jaspersoft.studio.field.label" value="orderId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="order"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qty" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="qty"/>
+		<property name="com.jaspersoft.studio.field.label" value="qty"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="82" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="30" width="390" height="30" forecolor="#3DD932" uuid="6d7f1f2e-47c5-4628-9989-394d69cf1b3f"/>
+				<textElement textAlignment="Center">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Income Chart]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="-10" width="380" height="40" forecolor="#145931" uuid="8592a4aa-c18c-42f9-b32d-20cd841ce3bd"/>
+				<textElement textAlignment="Center">
+					<font size="25" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Family Fare Market]]></text>
+			</staticText>
+			<image>
+				<reportElement x="440" y="-10" width="80" height="80" uuid="a80a799f-bd10-4c70-8483-86bd5efc2e40"/>
+				<imageExpression><![CDATA["views/assests/images/income.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="10" y="81" width="545" height="1" uuid="8b96c7f8-60ff-439d-89a2-43f6c8d0b3d5"/>
+			</line>
+		</band>
+	</title>
+	<summary>
+		<band height="370" splitType="Stretch">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="0" width="555" height="370" uuid="12959072-6e31-4ab0-b430-6edfee0f7565"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset resetType="Report"/>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{orderId}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{orderId}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{qty}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+		</band>
+	</summary>
+</jasperReport>

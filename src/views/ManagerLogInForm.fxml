@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="managerFormContext" prefHeight="894.0" prefWidth="790.0" style="-fx-background-color: #C0C0C0;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManagerLogInFormController">
+   <children>
+      <Label alignment="TOP_CENTER" layoutX="172.0" layoutY="32.0" prefHeight="66.0" prefWidth="481.0" text="Manager Log In Form">
+         <font>
+            <Font name="System Bold" size="45.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="161.0" fitWidth="200.0" layoutX="305.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assests/manager.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="172.0" layoutY="410.0" onAction="#openManageItems" prefHeight="69.0" prefWidth="413.0" style="-fx-background-color: #006200;" text="Manage Items" textFill="#f5efef">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="172.0" layoutY="543.0" onAction="#openIncomeReports" prefHeight="69.0" prefWidth="413.0" style="-fx-background-color: #006200;" text="Income Reports" textFill="#f5efef">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="172.0" layoutY="677.0" onAction="#openMovableItems" onMouseClicked="#openJasperEvent" prefHeight="69.0" prefWidth="413.0" style="-fx-background-color: #006200;" text="Movable Items" textFill="#f5efef">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="34.0" layoutY="27.0" onAction="#backToHome" prefHeight="75.0" prefWidth="101.0" style="-fx-background-color: #008000;" text="Button" />
+      <ImageView fitHeight="50.0" fitWidth="61.0" layoutX="60.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assests/home.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

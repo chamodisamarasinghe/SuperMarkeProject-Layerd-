@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="ItemDetailsContext" prefHeight="754.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemDetailsFormController">
+   <children>
+      <Label alignment="CENTER" layoutX="130.0" layoutY="41.0" prefHeight="21.0" prefWidth="731.0" text="Product Details Form" textFill="#487c60">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="85.0" layoutY="144.0" prefHeight="46.0" prefWidth="132.0" text="Order Id:">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblOrderId" layoutX="229.0" layoutY="144.0" prefHeight="46.0" prefWidth="210.0" text="O-001">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblItemDetails" layoutX="43.0" layoutY="230.0" prefHeight="416.0" prefWidth="918.0">
+        <columns>
+          <TableColumn fx:id="colItemCode" prefWidth="285.0" text="Product Code" />
+          <TableColumn fx:id="colQty" prefWidth="292.0" text="Qty" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="339.0" text="Unit Price" />
+        </columns>
+      </TableView>
+      <Label fx:id="lblTotal" layoutX="729.0" layoutY="675.0" prefHeight="46.0" prefWidth="210.0" text="0.00/=">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="608.0" layoutY="675.0" prefHeight="46.0" prefWidth="95.0" text="Total:">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

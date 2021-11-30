@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MovableItems" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="320154de-8e7c-4881-907f-aa8c077694b6">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (3)"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<queryString>
+		<![CDATA[select code, sum(qty) as qty from `Order Detail` group by code order by qty desc;]]>
+	</queryString>
+	<field name="code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="code"/>
+		<property name="com.jaspersoft.studio.field.label" value="code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="order detail"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="qty" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="qty"/>
+		<property name="com.jaspersoft.studio.field.label" value="qty"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="113" splitType="Stretch">
+			<staticText>
+				<reportElement x="-11" y="0" width="391" height="49" forecolor="#155719" uuid="c5f5a080-c815-48fb-b1b7-2bd06e64b339"/>
+				<textElement textAlignment="Center">
+					<font size="29" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Family Fare Market]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-11" y="49" width="391" height="30" forecolor="#30A132" uuid="7e6a23a3-5e8e-413b-8642-ee370c4d1b9f"/>
+				<textElement textAlignment="Center">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Most Movable Items]]></text>
+			</staticText>
+			<image>
+				<reportElement x="400" y="-10" width="120" height="99" uuid="2d5a1d98-d41b-43ef-a661-339394e87e24"/>
+				<imageExpression><![CDATA["views/assests/images/food.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="10" y="112" width="534" height="1" uuid="280660f3-ac0a-4b19-b099-17541918b48e"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<summary>
+		<band height="383" splitType="Stretch">
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="-10" width="555" height="383" uuid="9bed5055-e39d-4d49-b563-752ee3ab9870"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset resetType="Report"/>
+					<keyExpression><![CDATA[$F{code}]]></keyExpression>
+					<valueExpression><![CDATA[$F{qty}]]></valueExpression>
+					<labelExpression><![CDATA[$F{code}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

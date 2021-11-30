@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="makeCustomerOrderContext" prefHeight="1000.0" prefWidth="1900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MakeCustomerOrderController">
+   <children>
+      <Label layoutX="402.0" layoutY="14.0" prefHeight="67.0" prefWidth="522.0" text="Make Customer Order" textFill="#2e7c51">
+         <font>
+            <Font name="System Bold" size="43.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="1036.0" layoutY="32.0" prefHeight="53.0" prefWidth="353.0" style="-fx-background-color: #000000; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="21.0" layoutY="12.0" prefHeight="21.0" prefWidth="52.0" text="Date:" textFill="#f2eeee">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDate" layoutX="115.0" layoutY="12.0" prefHeight="30.0" prefWidth="216.0" text="2021 - 10 - 22" textFill="#f2eeee">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <AnchorPane layoutX="1434.0" layoutY="32.0" prefHeight="53.0" prefWidth="353.0" style="-fx-background-color: #000000; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="21.0" layoutY="12.0" prefHeight="21.0" prefWidth="52.0" text="Time:" textFill="#f2eeee">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTime" layoutX="115.0" layoutY="12.0" prefHeight="30.0" prefWidth="216.0" text="18 : 12 : 34" textFill="#f2eeee">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="19.0" layoutY="180.0" prefHeight="144.0" prefWidth="1850.0" style="-fx-background-color: #00806A; -fx-background-radius: 20;">
+         <children>
+            <ComboBox fx:id="cmbCustomerId" layoutX="14.0" layoutY="37.0" prefHeight="46.0" prefWidth="197.0" promptText="Customer Id" />
+            <TextField fx:id="txtTitle" layoutX="228.0" layoutY="37.0" prefHeight="46.0" prefWidth="141.0" promptText="Title" visible="false">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtName" layoutX="383.0" layoutY="37.0" prefHeight="46.0" prefWidth="314.0" promptText="Name">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtAddress" layoutX="714.0" layoutY="37.0" prefHeight="46.0" prefWidth="314.0" promptText="Address">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtCity" layoutX="1050.0" layoutY="37.0" prefHeight="46.0" prefWidth="216.0" promptText="City">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtProvince" layoutX="1298.0" layoutY="37.0" prefHeight="46.0" prefWidth="216.0" promptText="Province">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtPostalCode" layoutX="1552.0" layoutY="37.0" prefHeight="46.0" prefWidth="216.0" promptText="Postal Code">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="19.0" layoutY="342.0" prefHeight="144.0" prefWidth="1850.0" style="-fx-background-color: #00806A; -fx-background-radius: 20;">
+         <children>
+            <ComboBox fx:id="cmbCode" layoutX="14.0" layoutY="37.0" prefHeight="46.0" prefWidth="197.0" promptText="Item Code" />
+            <TextField fx:id="txtDescription" layoutX="319.0" layoutY="37.0" prefHeight="46.0" prefWidth="314.0" promptText="Description">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtPackSize" layoutX="678.0" layoutY="37.0" prefHeight="46.0" prefWidth="299.0" promptText="Pack Size">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtQtyOnHand" layoutX="1043.0" layoutY="37.0" prefHeight="46.0" prefWidth="257.0" promptText="Qty On Hand">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtUnitPrize" layoutX="1346.0" layoutY="37.0" prefHeight="46.0" prefWidth="216.0" promptText="Unit Prize">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtQty" layoutX="1635.0" layoutY="37.0" prefHeight="46.0" prefWidth="141.0" promptText="Qty">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="tblOrderDetails" layoutX="19.0" layoutY="500.0" prefHeight="493.0" prefWidth="1195.0" stylesheets="@styles/MakeCustomer.css">
+        <columns>
+          <TableColumn fx:id="colItemCode" prefWidth="152.0" text="Item Code" />
+          <TableColumn fx:id="colDescription" prefWidth="137.99996948242188" text="Description" />
+            <TableColumn fx:id="colPackSize" prefWidth="194.0" text="Pack Size" />
+            <TableColumn fx:id="colQty" prefWidth="184.0" text="Qty " />
+            <TableColumn fx:id="colUnitPrize" prefWidth="199.0" text="Unit Prize" />
+            <TableColumn fx:id="colTotal" prefWidth="160.0" text="Total" />
+            <TableColumn prefWidth="170.0" text="Delete" />
+        </columns>
+      </TableView>
+      <AnchorPane layoutX="1327.0" layoutY="493.0" prefHeight="493.0" prefWidth="442.0" style="-fx-background-color: #6EEED8;">
+         <children>
+            <Label layoutX="29.0" layoutY="41.0" text="Total: " textFill="#e41212">
+               <font>
+                  <Font name="System Bold" size="34.0" />
+               </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="101.0" text="Discount:" textFill="#e41212" visible="false">
+               <font>
+                  <Font name="System Bold" size="34.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="51.0" layoutY="139.0" onAction="#btnAdd_OnAction" prefHeight="46.0" prefWidth="286.0" style="-fx-background-color: #005842;" text="Add" textFill="#eee9e9">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="65.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assests/plus.png" />
+               </image>
+            </ImageView>
+            <JFXButton fx:id="btnPlaceOrder" alignment="CENTER" buttonType="RAISED" layoutX="51.0" layoutY="201.0" onAction="#btnPlaceOrder_OnAction" prefHeight="46.0" prefWidth="286.0" style="-fx-background-color: #005842;" text="Confirm Order" textFill="#eee9e9">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="65.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assests/confirm.png" />
+               </image>
+            </ImageView>
+            <JFXButton buttonType="RAISED" layoutX="51.0" layoutY="272.0" onAction="#openAddNewCustomerOnAction" prefHeight="46.0" prefWidth="286.0" style="-fx-background-color: #004359;" text="+Add new customer" textFill="#eee9e9">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="51.0" layoutY="340.0" onMouseClicked="#printBillJasperEvent" prefHeight="46.0" prefWidth="286.0" style="-fx-background-color: #004359;" text="Print Bill" textFill="#eee9e9">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <Label fx:id="lblTotal" layoutX="139.0" layoutY="41.0" prefHeight="50.0" prefWidth="162.0" text="0.00" textFill="#e41212">
+               <font>
+                  <Font name="System Bold" size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDiscount" layoutX="192.0" layoutY="101.0" prefHeight="50.0" prefWidth="247.0" text="0.00/=" textFill="#e41212" visible="false">
+               <font>
+                  <Font name="System Bold" size="34.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTotal1" layoutX="301.0" layoutY="41.0" prefHeight="50.0" prefWidth="46.0" text="/=" textFill="#e41212">
+               <font>
+                  <Font name="System Bold" size="34.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="51.0" layoutY="406.0" onAction="#viewOrdersOnAction" prefHeight="46.0" prefWidth="286.0" style="-fx-background-color: #004359;" text="View Orders" textFill="#eee9e9" visible="false">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <JFXButton buttonType="RAISED" layoutX="33.0" layoutY="14.0" onAction="#backToCashier" prefHeight="67.0" prefWidth="87.0" style="-fx-background-color: #006200;" />
+      <ImageView fitHeight="46.0" fitWidth="52.0" layoutX="54.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assests/go-back.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="33.0" layoutY="100.0" prefHeight="67.0" prefWidth="522.0" style="-fx-background-color: #000000; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="21.0" layoutY="12.0" prefHeight="46.0" prefWidth="141.0" text="Order Id:" textFill="#f2eeee">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblOrderId" layoutX="209.0" layoutY="12.0" prefHeight="46.0" prefWidth="299.0" text="O-001" textFill="#f2eeee">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

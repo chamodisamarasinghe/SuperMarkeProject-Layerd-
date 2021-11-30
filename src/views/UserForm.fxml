@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="userFormContext" prefHeight="835.0" prefWidth="726.0" style="-fx-background-color: #B5EAAA;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserFormController">
+   <children>
+      <Label alignment="CENTER" layoutX="151.0" layoutY="25.0" prefHeight="69.0" prefWidth="425.0" text="User Form">
+         <font>
+            <Font name="System Bold" size="41.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbRoleType" layoutX="167.0" layoutY="163.0" prefHeight="44.0" prefWidth="392.0" promptText="Role Type" />
+      <TextField fx:id="txtUserName" layoutX="167.0" layoutY="269.0" prefHeight="50.0" prefWidth="392.0" promptText="User Name">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFullName" layoutX="168.0" layoutY="352.0" prefHeight="50.0" prefWidth="392.0" promptText="Full Name">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtEmail" layoutX="168.0" layoutY="439.0" prefHeight="50.0" prefWidth="392.0" promptText="Email">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtPassWord" layoutX="168.0" layoutY="522.0" prefHeight="50.0" prefWidth="392.0" promptText="Password">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </TextField>
+      <JFXButton buttonType="RAISED" layoutX="251.0" layoutY="690.0" onAction="#addOnAction" prefHeight="60.0" prefWidth="197.0" style="-fx-background-color: #008000;" text="Add">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
