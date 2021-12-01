@@ -147,20 +147,15 @@ public class PlaceOrderFormController {
         });
 
 
-
-
         loadAllCustomerIds();
         loadAllItemCodes();
 
-        
+
     }
 
     private boolean existItem(String code) throws SQLException, ClassNotFoundException {
         return purchaseOrderBO.ifItemExist(code);
     }
-
-
-
 
 
     private String generateNewOrderId() {
@@ -189,8 +184,6 @@ public class PlaceOrderFormController {
     }
 
 
-
-
     private void loadAllCustomerIds() {
         try {
             ArrayList<CustomerDTO> all = purchaseOrderBO.getAllCustomers();
@@ -205,92 +198,91 @@ public class PlaceOrderFormController {
     }
 
 
-
-
     private void enableOrDisablePlaceOrderButton() {
         btnPlaceOrder.setDisable(!(cmbItemCode.getSelectionModel().getSelectedItem() != null && !tblOrderDetails.getItems().isEmpty()));
 
-   }
+    }
 
     private void calculateTotal() {
-        double total=0;
+        double total = 0;
         for (OrderDetailTM detail : tblOrderDetails.getItems()) {
             total = detail.getTotal();
         }
         lblTotal.setText("Total: " + total);
     }
 
-    public void backToCashierOnAction (ActionEvent actionEvent) throws IOException {
-            URL resource = getClass().getResource("../views/CashierLogInForm.fxml");
-            Parent load = FXMLLoader.load(resource);
-            Stage window = (Stage) placeOrderContext.getScene().getWindow();
-            window.setScene(new Scene(load));
+    public void backToCashierOnAction(ActionEvent actionEvent) throws IOException {
+        URL resource = getClass().getResource("../views/CashierLogInForm.fxml");
+        Parent load = FXMLLoader.load(resource);
+        Stage window = (Stage) placeOrderContext.getScene().getWindow();
+        window.setScene(new Scene(load));
+    }
+
+    public void btnAdd_OnAction(ActionEvent actionEvent) {
+        if (!txtQty.getText().matches("\\d+") || Integer.parseInt(txtQty.getText()) <= 0 ||
+                Integer.parseInt(txtQty.getText()) > Integer.parseInt(txtQtyOnHand.getText())) {
+            new Alert(Alert.AlertType.ERROR, "Invalid qty").show();
+            txtQty.requestFocus();
+            txtQty.selectAll();
+            return;
         }
 
-        public void btnAdd_OnAction (ActionEvent actionEvent){
-            if (!txtQty.getText().matches("\\d+") || Integer.parseInt(txtQty.getText()) <= 0 ||
-                    Integer.parseInt(txtQty.getText()) > Integer.parseInt(txtQtyOnHand.getText())) {
-                new Alert(Alert.AlertType.ERROR, "Invalid qty").show();
-                txtQty.requestFocus();
-                txtQty.selectAll();
-                return;
-            }
+        String itemCode = cmbItemCode.getSelectionModel().getSelectedItem();
+        String description = txtDescription.getText();
+        String packSize = txtPackSize.getText();
+        int qty = Integer.parseInt(txtQty.getText());
+        double unitPrice = Double.parseDouble(txtUnitPrize.getText());
+        // int qty = Integer.parseInt(txtQty.getText());
+        double total = qty * unitPrice;
 
-            String itemCode = cmbItemCode.getSelectionModel().getSelectedItem();
-            String description = txtDescription.getText();
-            String packSize = txtPackSize.getText();
-            int qty = Integer.parseInt(txtQty.getText());
-            double unitPrice = Double.parseDouble(txtUnitPrize.getText());
-            // int qty = Integer.parseInt(txtQty.getText());
-            double total = qty * unitPrice;
+        boolean exists = tblOrderDetails.getItems().stream().anyMatch(detail -> detail.getCode().equals(itemCode));
 
-            boolean exists = tblOrderDetails.getItems().stream().anyMatch(detail -> detail.getCode().equals(itemCode));
+        if (exists) {
+            OrderDetailTM orderDetailTM = tblOrderDetails.getItems().stream().filter(detail -> detail.getCode().equals(itemCode)).findFirst().get();
 
-            if (exists) {
-                OrderDetailTM orderDetailTM = tblOrderDetails.getItems().stream().filter(detail -> detail.getCode().equals(itemCode)).findFirst().get();
-
-                if (btnSave.getText().equalsIgnoreCase("Update")) {
-                    orderDetailTM.setQty(qty);
-                    orderDetailTM.setTotal(total);
-                    tblOrderDetails.getSelectionModel().clearSelection();
-                } else {
-                    orderDetailTM.setQty(orderDetailTM.getQty() + qty);
-                    total =qty * unitPrice;
-                    orderDetailTM.setTotal(total);
-                }
-                tblOrderDetails.refresh();
+            if (btnSave.getText().equalsIgnoreCase("Update")) {
+                orderDetailTM.setQty(qty);
+                orderDetailTM.setTotal(total);
+                tblOrderDetails.getSelectionModel().clearSelection();
             } else {
-                tblOrderDetails.getItems().add(new OrderDetailTM(itemCode, description, packSize, qty, unitPrice, total));
+                orderDetailTM.setQty(orderDetailTM.getQty() + qty);
+                total = qty * unitPrice;
+                orderDetailTM.setTotal(total);
             }
-            cmbItemCode.getSelectionModel().clearSelection();
-            cmbItemCode.requestFocus();
-            calculateTotal();
-            enableOrDisablePlaceOrderButton();
+            tblOrderDetails.refresh();
+        } else {
+            tblOrderDetails.getItems().add(new OrderDetailTM(itemCode, description, packSize, qty, unitPrice, total));
+        }
+        cmbItemCode.getSelectionModel().clearSelection();
+        cmbItemCode.requestFocus();
+        calculateTotal();
+        enableOrDisablePlaceOrderButton();
+    }
+
+    public void btnPlaceOrder_OnAction(ActionEvent actionEvent) {
+       // boolean b = saveOrder(orderId, (String) cmbCustomerId.getValue(), lblDate.getText(), lblTime.getText(), Double.parseDouble(lblTotal.getText()),
+               // tblOrderDetails.getItems().stream().map(tm -> new OrderDetailDTO(tm.getCode(), orderId, tm.getQty(), tm.getUnitPrice())).collect(Collectors.toList()));
+
+        boolean b = saveOrder(lblOrderId.getText(), String.valueOf(cmbCustomerId.getValue()), lblDate.getText(), lblTime.getText(),
+                Double.parseDouble(lblTotal.getText()),
+                tblOrderDetails.getItems().stream().map(tm ->
+                        new OrderDetailDTO(tm.getCode(), orderId, tm.getQty(), tm.getUnitPrice())).collect(Collectors.toList()));
+
+        if (b) {
+            new Alert(Alert.AlertType.INFORMATION, "Order has been placed successfully").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Order has not been placed successfully").show();
         }
 
-        public void btnPlaceOrder_OnAction (ActionEvent actionEvent){
-//            boolean b = saveOrder(orderId, (String) cmbCustomerId.getValue(),lblDate.getText(), lblTime.getText(), Double.parseDouble(lblTotal.getText()),
-//                    tblOrderDetails.getItems().stream().map(tm -> new OrderDetailDTO(tm.getCode(),orderId, tm.getQty(), tm.getUnitPrice())).collect(Collectors.toList()));
+        orderId = generateNewOrderId();
+        lblOrderId.setText(generateNewOrderId());
+        cmbCustomerId.getSelectionModel().clearSelection();
+        cmbItemCode.getSelectionModel().clearSelection();
+        tblOrderDetails.getItems().clear();
+        txtQty.clear();
+        calculateTotal();
+    }
 
-            boolean b = saveOrder(lblOrderId.getText(),String.valueOf(cmbCustomerId.getValue()),lblDate.getText(),lblTime.getText(),
-                    Double.parseDouble(lblTotal.getText()),
-                    tblOrderDetails.getItems().stream().map(tm ->
-                            new OrderDetailDTO(tm.getCode(), orderId, tm.getQty(), tm.getUnitPrice())).collect(Collectors.toList()));
-
-            if (b) {
-                new Alert(Alert.AlertType.INFORMATION, "Order has been placed successfully").show();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "Order has not been placed successfully").show();
-            }
-
-            orderId = generateNewOrderId();
-            lblOrderId.setText(generateNewOrderId());
-            cmbCustomerId.getSelectionModel().clearSelection();
-            cmbItemCode.getSelectionModel().clearSelection();
-            tblOrderDetails.getItems().clear();
-            txtQty.clear();
-            calculateTotal();
-        }
 
     private boolean saveOrder(String orderId, String customerId, String orderDate, String time, double total, List<OrderDetailDTO> orderDetail) {
         try {
@@ -305,6 +297,7 @@ public class PlaceOrderFormController {
         return false;
     }
 
-    }
+
+}
 
 

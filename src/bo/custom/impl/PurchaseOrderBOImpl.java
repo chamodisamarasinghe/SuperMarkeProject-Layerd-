@@ -36,9 +36,9 @@ public class PurchaseOrderBOImpl implements PurchaseOrderBO {
             return false;
         }
 
-        connection.setAutoCommit(false);
+       connection.setAutoCommit(false);
         /*Add Order*/
-        Order order = new Order(dto.getOrderId(), dto.getCustomerId(), dto.getOrderDate(), dto.getTime(),dto.getTotal());
+       Order order = new Order(dto.getOrderId(), dto.getCustomerId(), dto.getOrderDate(), dto.getTime(),dto.getTotal());
         boolean orderAdded = orderDAO.add(order);
         if (!orderAdded) {
             connection.rollback();
